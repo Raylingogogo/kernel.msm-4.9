@@ -398,10 +398,10 @@ static int dsi_panel_reset(struct dsi_panel *panel)
 				 == MODE_GPIO_HIGH))
 			out = true;
 
-		rc = gpio_direction_output(
-			panel->reset_config.lcd_mode_sel_gpio, out);
-		if (rc)
-			pr_err("unable to set dir for mode gpio rc=%d\n", rc);
+	//	rc = gpio_direction_output(
+	//		panel->reset_config.lcd_mode_sel_gpio, out);
+	//	if (rc)
+	//		pr_err("unable to set dir for mode gpio rc=%d\n", rc);
 	}
 exit:
 	return rc;
@@ -476,8 +476,8 @@ static int dsi_panel_power_off(struct dsi_panel *panel)
 	if (gpio_is_valid(panel->reset_config.reset_gpio))
 		gpio_set_value(panel->reset_config.reset_gpio, 0);
 
-	if (gpio_is_valid(panel->reset_config.lcd_mode_sel_gpio))
-		gpio_set_value(panel->reset_config.lcd_mode_sel_gpio, 0);
+	//if (gpio_is_valid(panel->reset_config.lcd_mode_sel_gpio))
+	//	gpio_set_value(panel->reset_config.lcd_mode_sel_gpio, 0);
 
 	rc = dsi_panel_set_pinctrl_state(panel, false);
 	if (rc) {
