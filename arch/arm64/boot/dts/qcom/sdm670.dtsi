@@ -651,7 +651,7 @@
 		clocks = <&clock_aop QDSS_CLK>;
 		clock-names = "core_clk";
 
-		qom,coresight-jtagmm-cpu = <&CPU1>;
+		qcom,coresight-jtagmm-cpu = <&CPU1>;
 	};
 
 	jtag_mm2: jtagmm@7240000 {
@@ -2207,7 +2207,7 @@
 		qcom,signal-aop;
 		qcom,qdsp6v65-1-0;
 		qcom,mss_pdc_offset = <9>;
-		status = "ok";
+		status = "disabled";
 		memory-region = <&pil_modem_mem>;
 		qcom,mem-protect-id = <0xF>;
 		qcom,complete-ramdump;

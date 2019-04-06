@@ -27,7 +27,7 @@
 	model = "Qualcomm Technologies, Inc. SXR1130 PM660 + PM660L Ext. Audio Codec MTP";
 	compatible = "qcom,sxr1130-mtp", "qcom,sxr1130", "qcom,mtp";
 	qcom,msm-id = <371 0x0>;
-	qcom,board-id = <8 1>;
+	qcom,board-id = <8 0>;
 	qcom,pmic-id = <0x0001001b 0x0101011a 0x0 0x0>,
 		       <0x0001001b 0x0102001a 0x0 0x0>,
 		       <0x0001001b 0x0201011a 0x0 0x0>;

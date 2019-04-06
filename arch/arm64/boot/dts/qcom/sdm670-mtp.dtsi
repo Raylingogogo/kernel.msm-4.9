@@ -363,7 +363,7 @@
 	qcom,mdss-dsi-mode-sel-gpio-state = "single_port";
 };
 
-&dsi_dual_nt35597_truly_video_display {
+&dsi_sim_vid_display {
 	qcom,dsi-display-active;
 };
 
@@ -374,6 +374,7 @@
 
 &mdss_mdp {
 	#cooling-cells = <2>;
+	connectors = <&sde_rscc &sde_wb &dsi_sim_vid_display>;
 };
 
 &thermal_zones {
