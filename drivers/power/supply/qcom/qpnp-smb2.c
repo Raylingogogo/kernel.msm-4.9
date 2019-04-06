@@ -28,6 +28,8 @@
 #include "smb-lib.h"
 #include "storm-watch.h"
 #include <linux/pmic-voter.h>
+#include <linux/gpio.h>
+#include <linux/of_gpio.h>
 
 #define SMB2_DEFAULT_WPWR_UW	8000000
 
@@ -2278,6 +2280,28 @@ static int smb2_probe(struct platform_device *pdev)
 	int rc = 0;
 	union power_supply_propval val;
 	int usb_present, batt_present, batt_health, batt_charge_type;
+    // [Roger] enable WCD8340 buck
+    int ret;
+
+    ret = gpio_request(94, "WCD_REG_VSEL");
+	if (ret) {
+		printk(KERN_ERR "[Roger] %s : failed to request gpio 94\n", __func__);
+	}
+    else {
+        gpio_direction_output(94, 1);
+    }
+    gpio_set_value(94, 1);
+    gpio_free(94);
+    
+    ret = gpio_request(95, "GPIO_WCD1P8_EN");
+	if (ret) {
+		printk(KERN_ERR "[Roger] %s : failed to request gpio 95\n", __func__);
+	}
+    else {
+        gpio_direction_output(95, 1);
+    }
+    gpio_set_value(95, 1);
+    gpio_free(95);    
 
 	chip = devm_kzalloc(&pdev->dev, sizeof(*chip), GFP_KERNEL);
 	if (!chip)
